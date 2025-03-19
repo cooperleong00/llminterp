@@ -89,18 +89,30 @@ const PaperCard: React.FC<PaperCardProps> = ({
         
         {isExpanded && (
           <div className="flex flex-wrap gap-1 mb-1.5">
+            {paper.primaryTag && (
+              <span 
+                key={`primary-${paper.primaryTag}`} 
+                className="px-1.5 py-0.5 text-xs font-medium rounded-full"
+                style={getTagStyle(paper.primaryTag)}
+              >
+                #{paper.primaryTag}
+              </span>
+            )}
+            
             {paper.tags && paper.tags.length > 0 ? (
-              paper.tags.map(tag => (
-                <span 
-                  key={tag} 
-                  className="px-1.5 py-0.5 text-xs font-medium rounded-full"
-                  style={getTagStyle(tag)}
-                >
-                  #{tag}
-                </span>
-              ))
+              paper.tags
+                .filter(tag => tag !== paper.primaryTag) // Don't show primary tag twice
+                .map(tag => (
+                  <span 
+                    key={tag} 
+                    className="px-1.5 py-0.5 text-xs font-medium rounded-full"
+                    style={getTagStyle(tag)}
+                  >
+                    #{tag}
+                  </span>
+                ))
             ) : (
-              <span className="text-xs text-gray-400">No tags</span>
+              !paper.primaryTag && <span className="text-xs text-gray-400">No tags</span>
             )}
           </div>
         )}
