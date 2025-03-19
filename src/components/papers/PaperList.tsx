@@ -61,8 +61,23 @@ const PaperList: React.FC = () => {
     return Object.entries(tagGroups).map(([tag, papers]) => {
       const tagColor = parentTagColors[tag] || '#9ca3af'; // Use the parent tag color or default to gray
       
+      // Group papers by child tags
+      const childTagGroups: Record<string, typeof filteredPapers> = {};
+      
+      // Group papers by child tag (part after the slash)
+      papers.forEach(paper => {
+        // Extract child tag if it exists (part after the slash)
+        const parts = paper.primaryTag.split('/');
+        const childTag = parts.length > 1 ? parts[1] : '_default_';
+        
+        if (!childTagGroups[childTag]) {
+          childTagGroups[childTag] = [];
+        }
+        childTagGroups[childTag].push(paper);
+      });
+      
       return (
-        <div key={tag} className="mb-4">
+        <div key={tag} className="mb-4" data-tag-section={tag}>
           <h3 className="text-xs font-semibold uppercase tracking-wider mb-2 flex items-center">
             <span 
               className="w-3 h-3 inline-block rounded-sm mr-1.5" 
@@ -71,14 +86,27 @@ const PaperList: React.FC = () => {
             <span style={{ color: tagColor }}>{tag}</span>
           </h3>
           <div className="space-y-2">
-            {papers.map(paper => (
-              <PaperCard 
-                key={paper.id} 
-                paper={paper}
-                isExpanded={expandedPaperId === paper.id}
-                onToggleExpand={() => handleToggleExpand(paper.id)}
-                showFullDetails={filters.searchTerm !== '' || expandedPaperId === paper.id}
-              />
+            {Object.entries(childTagGroups).map(([childTag, childPapers]) => (
+              <div 
+                key={`${tag}/${childTag}`} 
+                className="mb-2" 
+                data-tag-section={childTag !== '_default_' ? `${tag}/${childTag}` : undefined}
+              >
+                {childTag !== '_default_' && (
+                  <h4 className="text-xs font-medium text-gray-600 ml-4 mb-1">{childTag}</h4>
+                )}
+                <div className="space-y-2">
+                  {childPapers.map(paper => (
+                    <PaperCard 
+                      key={paper.id} 
+                      paper={paper}
+                      isExpanded={expandedPaperId === paper.id}
+                      onToggleExpand={() => handleToggleExpand(paper.id)}
+                      showFullDetails={filters.searchTerm !== '' || expandedPaperId === paper.id}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

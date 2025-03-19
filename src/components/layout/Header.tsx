@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   return (
     <div className="bg-white border-b border-gray-100 shadow-soft py-2 px-3 sticky top-0 z-10">
       <div className="flex flex-col items-center max-w-7xl mx-auto">
-        <h1 className="text-xl font-bold text-primary-600 tracking-tight mb-2">LLMInterp</h1>
+        <h1 className="text-xl font-bold text-primary-600 tracking-tight mb-2">Awesome LLM Interpretability</h1>
         <div className="form-control w-full max-w-lg">
           <div className="relative">
             <input

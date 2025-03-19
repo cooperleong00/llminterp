@@ -4,7 +4,6 @@ export interface Paper {
   tags: string[];
   primaryTag: string;
   date: string;
-  publishedAt?: string;
   authors: string[];
   abstract: string;
   urls: {

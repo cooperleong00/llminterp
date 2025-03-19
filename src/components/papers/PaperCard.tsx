@@ -129,10 +129,6 @@ const PaperCard: React.FC<PaperCardProps> = ({
               <span className="font-medium text-gray-700">Authors:</span> {paper.authors && paper.authors.length > 0 ? paper.authors.join(', ') : 'Unknown'}
             </div>
             
-            <div className="text-xs text-gray-600 mb-2">
-              <span className="font-medium text-gray-700">Published at:</span> {paper.publishedAt || 'Unknown'}
-            </div>
-            
             <p className="text-xs text-gray-700 leading-relaxed mb-3 border-l-2 border-primary-200 pl-2">
               {paper.abstract || 'No abstract available'}
             </p>

@@ -9,9 +9,68 @@ interface TagFilterProps {
 }
 
 const TagFilter: React.FC<TagFilterProps> = ({ tag, isExpanded, toggleExpand }) => {
-  const { toggleTag, isTagSelected } = usePaperContext();
+  const { toggleTag, isTagSelected, filters, setFilters, tags } = usePaperContext();
   
   const hasChildren = tag.children && tag.children.length > 0;
+  
+  // Helper function to find a parent tag by ID
+  const findParentTag = (parentId: string): Tag | undefined => {
+    return tags.find(t => t.id === parentId);
+  };
+  
+  const handleTagClick = (e: React.MouseEvent, tagParam: Tag) => {
+    console.log('handleTagClick', tagParam);
+    // Only handle click if we're in tag-based view
+    if (filters.sortOption === 'tag-based') {
+      // For parent tags (e.g., "TEC" with name "Techniques")
+      if (!tagParam.id.includes('_')) {
+        // This is a parent tag, use its name directly
+        const sectionSelector = `[data-tag-section="${tagParam.name}"]`;
+        console.log('Looking for parent section:', sectionSelector);
+        
+        const tagSection = document.querySelector(sectionSelector);
+        if (tagSection) {
+          console.log('Found parent section, scrolling to it');
+          tagSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          console.log('Parent section not found for:', tagParam.name);
+        }
+      } else {
+        // This is a child tag (e.g., "TEC_EPR" with name "Embedding Projection")
+        // We need to find the parent name and the child name
+        
+        // Get parent tag info
+        const parentId = tagParam.id.split('_')[0]; // e.g., "TEC"
+        const parentTag = findParentTag(parentId);
+        
+        if (parentTag) {
+          // The child section has data-tag-section="Techniques/Embedding Projection"
+          const sectionSelector = `[data-tag-section="${parentTag.name}/${tagParam.name}"]`;
+          console.log('Looking for child section:', sectionSelector);
+          
+          const tagSection = document.querySelector(sectionSelector);
+          if (tagSection) {
+            console.log('Found child section, scrolling to it');
+            tagSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            // Try fallback to parent
+            const fallbackSelector = `[data-tag-section="${parentTag.name}"]`;
+            console.log('Child section not found, trying parent:', fallbackSelector);
+            
+            const parentSection = document.querySelector(fallbackSelector);
+            if (parentSection) {
+              console.log('Found parent section, scrolling to it');
+              parentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              console.log('Neither child nor parent section found');
+            }
+          }
+        } else {
+          console.log('Could not find parent tag for:', tagParam.id);
+        }
+      }
+    }
+  };
   
   return (
     <div className="ml-0.5">
@@ -37,8 +96,17 @@ const TagFilter: React.FC<TagFilterProps> = ({ tag, isExpanded, toggleExpand }) 
               onChange={() => toggleTag(tag.id)}
               id={`tag-${tag.id}`}
             />
-            <span className="text-xs text-gray-700 font-medium">{tag.name}</span>
           </label>
+          <span 
+            className={`text-xs text-gray-700 font-medium ml-1.5 ${
+              filters.sortOption === 'tag-based' 
+                ? 'hover:text-primary-600 cursor-pointer' 
+                : 'cursor-default'
+            }`}
+            onClick={(e) => handleTagClick(e, tag)}
+          >
+            {tag.name}
+          </span>
         </div>
       </div>
       
@@ -54,8 +122,17 @@ const TagFilter: React.FC<TagFilterProps> = ({ tag, isExpanded, toggleExpand }) 
                   onChange={() => toggleTag(childTag.id)}
                   id={`tag-${childTag.id}`}
                 />
-                <span className="text-xs text-gray-600">{childTag.name}</span>
               </label>
+              <span 
+                className={`text-xs text-gray-600 ml-1.5 ${
+                  filters.sortOption === 'tag-based' 
+                    ? 'hover:text-primary-600 cursor-pointer' 
+                    : 'cursor-default'
+                }`}
+                onClick={(e) => handleTagClick(e, childTag)}
+              >
+                {childTag.name}
+              </span>
             </div>
           ))}
         </div>
