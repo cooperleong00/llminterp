@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/llminterp/static/css/main.9a6b589b.css",
+    "main.js": "/llminterp/static/js/main.e76db38a.js",
+    "static/js/453.4833c814.chunk.js": "/llminterp/static/js/453.4833c814.chunk.js",
+    "index.html": "/llminterp/index.html",
+    "main.9a6b589b.css.map": "/llminterp/static/css/main.9a6b589b.css.map",
+    "main.e76db38a.js.map": "/llminterp/static/js/main.e76db38a.js.map",
+    "453.4833c814.chunk.js.map": "/llminterp/static/js/453.4833c814.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a6b589b.css",
+    "static/js/main.e76db38a.js"
+  ]
+}

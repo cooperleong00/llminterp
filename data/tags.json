@@ -1,0 +1,162 @@
+[
+  {
+    "id": "TEC",
+    "name": "Techniques",
+    "children": [
+      {
+        "id": "TEC_GEN",
+        "name": "General"
+      },
+      {
+        "id": "TEC_EPR",
+        "name": "Embedding Projection"
+      },
+      {
+        "id": "TEC_PRO",
+        "name": "Probing"
+      },
+      {
+        "id": "TEC_CIN",
+        "name": "Causal Intervention"
+      },
+      {
+        "id": "TEC_AUT",
+        "name": "Automation"
+      },
+      {
+        "id": "TEC_SCO",
+        "name": "Sparse Coding"
+      },
+      {
+        "id": "TEC_VIS",
+        "name": "Visualization"
+      },
+      {
+        "id": "TEC_TRA",
+        "name": "Translation"
+      },
+      {
+        "id": "TEC_BEN",
+        "name": "Benchmark"
+      }
+    ]
+  },
+  {
+    "id": "ABI",
+    "name": "Ability",
+    "children": [
+      {
+        "id": "ABI_GEN",
+        "name": "General"
+      },
+      {
+        "id": "ABI_REA",
+        "name": "Reasoning"
+      },
+      {
+        "id": "ABI_FUN",
+        "name": "Function"
+      },
+      {
+        "id": "ABI_ARI",
+        "name": "Arithmetic"
+      },
+      {
+        "id": "ABI_ICL",
+        "name": "In-Context Learning"
+      },
+      {
+        "id": "ABI_FAC",
+        "name": "Factual Knowledge"
+      },
+      {
+        "id": "ABI_MUL",
+        "name": "Multilingual"
+      },
+      {
+        "id": "ABI_MMD",
+        "name": "Multimodal"
+      }
+    ]
+  },
+  {
+    "id": "COM",
+    "name": "Component",
+    "children": [
+      {
+        "id": "COM_GEN",
+        "name": "General"
+      },
+      {
+        "id": "COM_ATT",
+        "name": "Attention"
+      },
+      {
+        "id": "COM_MLP",
+        "name": "MLP"
+      },
+      {
+        "id": "COM_NEU",
+        "name": "Neuron"
+      }
+    ]
+  },
+  {
+    "id": "LDY",
+    "name": "Learning Dynamics",
+    "children": [
+      {
+        "id": "LDY_GEN",
+        "name": "General"
+      },
+      {
+        "id": "LDY_PTR",
+        "name": "Phase Transition"
+      },
+      {
+        "id": "LDY_FTN",
+        "name": "Fine-tuning"
+      }
+    ]
+  },
+  {
+    "id": "REP",
+    "name": "Representation",
+    "children": [
+      {
+        "id": "REP_GEN",
+        "name": "General"
+      },
+      {
+        "id": "REP_LIN",
+        "name": "Linearity"
+      }
+    ]
+  },
+  {
+    "id": "APP",
+    "name": "Application",
+    "children": [
+      {
+        "id": "APP_TRN",
+        "name": "Training"
+      },
+      {
+        "id": "APP_AST",
+        "name": "Activation Steering"
+      },
+      {
+        "id": "APP_KED",
+        "name": "Knowledge Editing"
+      },
+      {
+        "id": "APP_HAL",
+        "name": "Hallucination"
+      },
+      {
+        "id": "APP_RED",
+        "name": "Redundancy"
+      }
+    ]
+  }
+] 
