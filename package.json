@@ -2,7 +2,7 @@
   "name": "llminterp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://YOURUSERNAME.github.io/llminterp",
+  "homepage": "https://cooperleong00.github.io/llminterp",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.3.5"
   }
