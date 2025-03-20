@@ -4,9 +4,11 @@
     "title": "A mathematical framework for transformer circuits",
     "tags": [],
     "primaryTag": "Techniques/General",
-    "date": "",
-    "authors": [],
-    "abstract": "",
+    "date": "2021",
+    "authors": [
+      "Anthropic"
+    ],
+    "abstract": "In this paper, we attempt to take initial, very preliminary steps towards reverse-engineering transformers.  Given the incredible complexity and size of modern language models, we have found it most fruitful to start with the simplest possible models and work our way up from there.  Our aim is to discover simple algorithmic patterns, motifs, or frameworks that can subsequently be applied to larger and more complex models.  Specifically, in this paper we will study transformers with two layers or less which have only attention blocks – this is in contrast to a large, modern transformer like GPT-3, which has 96 layers and alternates attention blocks with MLP blocks. We find that by conceptualizing the operation of transformers in a new but mathematically equivalent way, we are able to make sense of these small models and gain significant understanding of how they operate internally.  Of particular note, we find that specific attention heads that we term “induction heads” can explain in-context learning in these small models, and that these heads only develop in models with at least two attention layers.  We also go through some examples of these heads operating in action on specific data.",
     "urls": {
       "blog": "https://transformer-circuits.pub/2021/framework/index.html"
     }
@@ -34,8 +36,10 @@
     "title": "interpreting GPT: the logit lens",
     "tags": [],
     "primaryTag": "Techniques/Embedding Projection",
-    "date": "",
-    "authors": [],
+    "date": "2020",
+    "authors": [
+      "nostalgebraist"
+    ],
     "abstract": "",
     "urls": {
       "Lesswrong 2020": "https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens"
@@ -524,9 +528,11 @@
     "title": "Towards monosemanticity: Decomposing language models with dictionary learning",
     "tags": [],
     "primaryTag": "Techniques/Sparse Coding",
-    "date": "",
-    "authors": [],
-    "abstract": "",
+    "date": "2023",
+    "authors": [
+      "Anthropic"
+    ],
+    "abstract": "In this paper, we use a weak dictionary learning algorithm called a sparse autoencoder to generate learned features from a trained model that offer a more monosemantic unit of analysis than the model's neurons themselves.",
     "urls": {
       "Transformer Circuits Thread": "https://transformer-circuits.pub/2023/monosemantic-features"
     }
@@ -562,30 +568,6 @@
     }
   },
   {
-    "id": 49,
-    "title": "Attention SAEs Scale to GPT-2 Small",
-    "tags": [],
-    "primaryTag": "Techniques/Sparse Coding",
-    "date": "",
-    "authors": [],
-    "abstract": "",
-    "urls": {
-      "Alignment Forum": "https://www.alignmentforum.org/posts/FSTRedtjuHa4Gfdbr/attention-saes-scale-to-gpt-2-small"
-    }
-  },
-  {
-    "id": 50,
-    "title": "We Inspected Every Head In GPT-2 Small using SAEs So You Don't Have To",
-    "tags": [],
-    "primaryTag": "Techniques/Sparse Coding",
-    "date": "",
-    "authors": [],
-    "abstract": "",
-    "urls": {
-      "Alignment Forum": "https://www.alignmentforum.org/posts/xmegeW5mqiBsvoaim/we-inspected-every-head-in-gpt-2-small-using-saes-so-you-don"
-    }
-  },
-  {
     "id": 51,
     "title": "Understanding SAE Features with the Logit Lens",
     "tags": [],
@@ -602,8 +584,10 @@
     "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
     "tags": [],
     "primaryTag": "Techniques/Sparse Coding",
-    "date": "",
-    "authors": [],
+    "date": "2024",
+    "authors": [
+      "Anthropic"
+    ],
     "abstract": "",
     "urls": {
       "Transformer Circuits Thread": "https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html"
@@ -825,23 +809,12 @@
     "title": "Sparse AutoEncoder Visulization",
     "tags": [],
     "primaryTag": "Techniques/Visualization",
-    "date": "",
+    "date": "2024-03",
     "authors": [],
     "abstract": "",
     "urls": {
+      "lesswrong": "https://www.lesswrong.com/posts/nAhy6ZquNY7AD3RkD/sae-vis-announcement-post-1",
       "github": "https://github.com/callummcdougall/sae_vis"
-    }
-  },
-  {
-    "id": 66,
-    "title": "SAE-VIS: Announcement Post",
-    "tags": [],
-    "primaryTag": "Techniques/Visualization",
-    "date": "",
-    "authors": [],
-    "abstract": "",
-    "urls": {
-      "lesswrong": "https://www.lesswrong.com/posts/nAhy6ZquNY7AD3RkD/sae-vis-announcement-post-1"
     }
   },
   {
@@ -1253,18 +1226,6 @@
     "abstract": "\\emph{Circuit analysis} is a promising technique for understanding the internal mechanisms of language models. However, existing analyses are done in small models far from the state of the art. To address this, we present a case study of circuit analysis in the 70B Chinchilla model, aiming to test the scalability of circuit analysis. In particular, we study multiple-choice question answering, and investigate Chinchilla's capability to identify the correct answer \\emph{label} given knowledge of the correct answer \\emph{text}. We find that the existing techniques of logit attribution, attention pattern visualization, and activation patching naturally scale to Chinchilla, allowing us to identify and categorize a small set of `output nodes' (attention heads and MLPs).\nWe further study the `correct letter' category of attention heads aiming to understand the semantics of their features, with mixed results. For normal multiple-choice question answers, we significantly compress the query, key and value subspaces of the head without loss of performance when operating on the answer labels for multiple-choice questions, and we show that the query and key subspaces represent an `Nth item in an enumeration' feature to at least some extent. However, when we attempt to use this explanation to understand the heads' behaviour on a more general distribution including randomized answer labels, we find that it is only a partial explanation, suggesting there is more to learn about the operation of `correct letter' heads on multiple choice question answering.",
     "urls": {
       "arxiv 2307": "http://arxiv.org/abs/2307.09458"
-    }
-  },
-  {
-    "id": 91,
-    "title": "Refusal mechanisms: initial experiments with Llama-2-7b-chat",
-    "tags": [],
-    "primaryTag": "Ability/Function",
-    "date": "",
-    "authors": [],
-    "abstract": "",
-    "urls": {
-      "AlignmentForum 2312": "https://www.alignmentforum.org/posts/pYcEhoAoPfHhgJ8YC/refusal-mechanisms-initial-experiments-with-llama-2-7b-chat"
     }
   },
   {
@@ -3022,6 +2983,25 @@
     "abstract": "Large language models have achieved remarkable success in general language understanding tasks. However, as a family of generative methods with the objective of next token prediction, the semantic evolution with the depth of these models are not fully explored, unlike their predecessors, such as BERT-like architectures. In this paper, we specifically investigate the bottom-up evolution of lexical semantics for a popular LLM, namely Llama2, by probing its hidden states at the end of each layer using a contextualized word identification task. Our experiments show that the representations in lower layers encode lexical semantics, while the higher layers, with weaker semantic induction, are responsible for prediction. This is in contrast to models with discriminative objectives, such as mask language modeling, where the higher layers obtain better lexical semantics. The conclusion is further supported by the monotonic increase in performance via the hidden states for the last meaningless symbols, such as punctuation, in the prompting strategy. Our codes are available at this https URL.",
     "urls": {
       "arxiv 2403": "https://arxiv.org/abs/2403.01509"
+    }
+  },
+  {
+    "id": 193,
+    "title": "Do Machine Learning Models Memorize or Generalize?",
+    "tags": [],
+    "primaryTag": "Learning Dynamics/Phase Transition",
+    "date": "2023-08",
+    "authors": [
+      "Adam Pearce",
+      "Asma Ghandeharioun",
+      "Nada Hussein",
+      "Nithum Thain",
+      "Martin Wattenberg",
+      "Lucas Dixon"
+    ],
+    "abstract": "In this article we’ll examine the training dynamics of a tiny model and reverse engineer the solution it finds – and in the process provide an illustration of the exciting emerging field of mechanistic interpretability. While it isn’t yet clear how to apply these techniques to today’s largest models, starting small makes it easier to develop intuitions as we progress towards answering these critical questions about large language models.",
+    "urls": {
+      "PAIR Explorables": "https://pair.withgoogle.com/explorables/grokking/"
     }
   }
 ]
